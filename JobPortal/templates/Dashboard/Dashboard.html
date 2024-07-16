@@ -761,299 +761,358 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-      <!-- Template HTML -->
-       <div class="row">
-         <div class="row">
-           <div class="row">
-         <!-- Total Jobpost Count -->
-             <div class="col-xxl-4 col-md-6">
-                 <div class="card info-card sales-card">
-                     <div class="filter">
-                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                             <li class="dropdown-header text-start">
-                                 <h6>Filter</h6>
-                             </li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-
-                         </ul>
-                     </div>
-                     <div class="card-body">
-                         <h5 class="card-title">Total Job Application</h5>
-                         <div class="d-flex align-items-center">
-                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                 <i class="bi bi-briefcase"></i>
-                             </div>
-                             <div class="ps-3">
-                                 <h6 id="applied-users-count">{{ applied_users_count }}</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
-         <!-- Accepted Applications Count -->
-             <div class="col-xxl-4 col-md-6">
-                 <div class="card info-card sales-card">
-                     <div class="filter">
-                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                             <li class="dropdown-header text-start">
-                                 <h6>Filter</h6>
-                             </li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                         </ul>
-                     </div>
-                     <div class="card-body">
-                         <h5 class="card-title">Approved Applications</h5>
-                         <div class="d-flex align-items-center">
-                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                 <i class="bi bi-briefcase"></i>
-                             </div>
-                             <div class="ps-3">
-                                 <h6 id="accepted-applications-count">{{ accepted_applications_count }}</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
-         <!-- Rejected Applications Count -->
-             <div class="col-xxl-4 col-md-6">
-                 <div class="card info-card sales-card">
-                     <div class="filter">
-                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                             <li class="dropdown-header text-start">
-                                 <h6>Filter</h6>
-                             </li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                         </ul>
-                     </div>
-                     <div class="card-body">
-                         <h5 class="card-title">Rejected Applications</h5>
-                         <div class="d-flex align-items-center">
-                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                 <i class="bi bi-people"></i>
-                             </div>
-                             <div class="ps-3">
-                                 <h6 id="rejected-applications-count">{{ rejected_applications_count }}</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
-         <!-- Pending Applications Count -->
-             <div class="col-xxl-4 col-md-6">
-                 <div class="card info-card sales-card">
-                     <div class="filter">
-                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                             <li class="dropdown-header text-start">
-                                 <h6>Filter</h6>
-                             </li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                         </ul>
-                     </div>
-                     <div class="card-body">
-                         <h5 class="card-title">Pending Applications</h5>
-                         <div class="d-flex align-items-center">
-                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                 <i class="bi bi-hourglass-split"></i>
-                             </div>
-                             <div class="ps-3">
-                                 <h6 id="pending-applications-count">{{ pending_applications_count }}</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
-         <!-- JavaScript for AJAX -->
-          
-
-         <div class="row">
-           <div class="col-12">
-               <div class="card">
-                   <div class="filter">
-                       <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                           <li class="dropdown-header text-start">
-                               <h6>Filter</h6>
-                           </li>
-                           <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                           <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                           <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                           <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                           <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                       </ul>
-                   </div>
-                   <div class="card-body">
-                       <h5 class="card-title">Reports</h5>
-                       <p>Filter: <span id="filter-title"></span></p>
-                       <div>
-                        <canvas id="reportsChart"></canvas>
-                    </div>
-                    
-                       
-                   </div>
-               </div>
-           </div>
-       </div>
-    
-          <div class="row">
-            <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start"><h6>Filter</h6></li>
-                  <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
-                             <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                </ul>
+      <!-- Total Job Application Count -->
+      <div class="row">
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Total Applied Job Application</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-briefcase"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="all-application-count">{{ all_application_count }}</h6>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">Recent Activity <span>| </span></h5>
-                <div class="activity">
-                  {% for job in recently_applied_jobs %}
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">{{ job.timestamp|timesince }}</div>
-                    <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                    <div class="activity-content">
-                      {{ job.job__title }}
-                    </div>
-                    {% comment %} <div class="activity-content">
-                      {{ job.user__username }}
-                    </div> {% endcomment %}
-                  </div><!-- End activity item-->
-                  {% endfor %}
+          </div>
+  
+          <!-- Accepted Applications Count -->
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Approved Applications</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-briefcase"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="accepted-applications-count">{{ accepted_applications_counts }}</h6>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Rejected Applications Count -->
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Rejected Applications</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-people"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="rejected-applications-count">{{ rejected_applications_counts }}</h6>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Pending Applications Count -->
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Pending Applications</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-hourglass-split"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="pending-applications-count">{{ pending_applications_counts }}</h6>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Reports Section -->
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Reports</h5>
+                      <p>Filter: <span id="filter-title"></span></p>
+                      <canvas id="reportsChart"></canvas>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Recent Activity Section -->
+      <div class="row">
+        <div class="card">
+          <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start"><h6>Filter</h6></li>
+              <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
+                <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
+                <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
+                <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Recent Activity <span>| </span></h5>
+            <div class="activity">
+              {% for job in recently_applied_jobs %}
+              <div class="activity-item d-flex">
+                <div class="activite-label">{{ job.timestamp|timesince }}</div>
+                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                <div class="activity-content">
+                  {{ job.job__title }}
                 </div>
+                 <div class="activity-content">
+                  {{ job.user__username }}
+                </div> 
               </div>
+              <!-- End activity item-->
+              {% endfor %}
             </div>
           </div>
-      
-    
-   </section>
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const filterLinks = document.querySelectorAll('.filter-link');
-     
+        </div>
+      </div>
+  </section>
   
-      filterLinks.forEach(link => {
-          link.addEventListener('click', function (e) {
-              e.preventDefault();
-              const filter = this.getAttribute('data-filter');
-  
-              fetch(`/total_count_c/?filter=${filter}`)
-                  .then(response => response.json())
-                  .then(data => {
-                      document.getElementById('applied-users-count').textContent = data.applied_users_count;
-                      document.getElementById('accepted-applications-count').textContent = data.accepted_applications_count;
-                      document.getElementById('rejected-applications-count').textContent = data.rejected_applications_count;
-                      document.getElementById('pending-applications-count').textContent = data.pending_applications_count;
-                      document.getElementById('filter-title').textContent = data.filter_title;
-  
-                      updateChart(data.chart_data);
-                  })
-                  .catch(error => console.error('Error fetching data:', error));
-          });
-      });
-  
-      function updateChart(chartData) {
-          const ctx = document.getElementById('reportsChart').getContext('2d');
-  
-          new Chart(ctx, {
-              type: 'bar',
-              data: {
-                  labels: chartData.labels,
-                  datasets: [{
-                      label: 'Application Status',
-                      data: chartData.data,
-                      backgroundColor: [
-                          'rgba(75, 192, 192, 0.2)', 
-                          'rgba(255, 99, 132, 0.2)', 
-                          'rgba(255, 205, 86, 0.2)', 
-                      ],
-                      borderColor: [
-                          'rgba(75, 192, 192, 1)',
-                          'rgba(255, 99, 132, 1)',
-                          'rgba(255, 205, 86, 1)',
-                      ],
-                      borderWidth: 1
-                  }]
-              },
-              options: {
-                  scales: {
-                      y: {
-                          beginAtZero: true
-                      }
-                  }
-              }
-          });
-      }
-  });
-  
-   </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
    {% comment %} <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const filterLinks = document.querySelectorAll('.filter-link');
-      filterLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const filter = this.getAttribute('data-filter');
-          fetch(`/your-view-url/?filter=${filter}`)
-            .then(response => response.json())
-            .then(data => {
-              document.getElementById('applied-users-count').textContent = data.applied_users_count;
-              document.getElementById('accepted-applications-count').textContent = data.accepted_applications_count;
-              document.getElementById('rejected-applications-count').textContent = data.rejected_applications_count;
-              document.getElementById('pending-applications-count').textContent = data.pending_applications_count;
-              document.getElementById('filter-title').textContent = data.filter_title;
-              updateChart(data.chart_data);
-              updateRecentActivity(data.recently_applied_jobs);
-            });
-        });
-      });
-  
-      function updateChart(chartData) {
-      }
-  
+     document.addEventListener("DOMContentLoaded", () => {
+         const filterLinks = document.querySelectorAll(".filter-link");
+     
+         filterLinks.forEach(link => {
+             link.addEventListener("click", (e) => {
+                 e.preventDefault();
+                 const filter = e.target.getAttribute("data-filter");
+     
+                 fetch(`/job/total_count_c/?filter=${filter}`, {
+                     headers: {
+                         'X-Requested-With': 'XMLHttpRequest'
+                     }
+                 })
+                 .then(response => response.json())
+                 .then(data => {
+                     console.log(data); 
+                     document.getElementById("all-application-count").innerText = data.total_application;
+                     document.getElementById("accepted-applications-count").innerText = data.accepted_applications_count;
+                     document.getElementById("rejected-applications-count").innerText = data.rejected_applications_count;
+                     document.getElementById("pending-applications-count").innerText = data.pending_applications_count;
+                     document.getElementById("filter-title").innerText = data.filter_title;
+     
+                     const reportsChart = document.getElementById("reportsCharts");
+                     reportsChart.innerHTML = ""; 
+     
+                     const chartData = data.chart_datas; 
+                     const chart = new Chart(reportsCharts, {
+                         type: 'bar',
+                         data: {
+                             labels: chartData.labels,
+                             datasets: [{
+                                 label: 'Applications',
+                                 data: chartData.data,
+                                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                 borderColor: 'rgba(54, 162, 235, 1)',
+                                 borderWidth: 1
+                             }]
+                         },
+                         options: {
+                             scales: {
+                                 y: {
+                                     beginAtZero: true
+                                 }
+                             }
+                         }
+                     });
+     
+                    updateRecentActivity(data.recently_applied_jobs);
+           })
+           .catch(error => {
+               console.error('Error fetching data:', error);
+           });
+       });
+    });
+
       function updateRecentActivity(recentlyAppliedJobs) {
-        const activityContainer = document.querySelector('.activity');
-        activityContainer.innerHTML = '';
-        recentlyAppliedJobs.forEach(job => {
-          const activityItem = document.createElement('div');
-          activityItem.classList.add('activity-item', 'd-flex');
-          activityItem.innerHTML = `
-            <div class="activite-label">${job.timestamp}</div>
-            <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-            <div class="activity-content">${job.job__title}</div>
-            <div class="activity-content">${job.user__username}</div>
-          `;
-          activityContainer.appendChild(activityItem);
-        });
+          const activityContainer = document.querySelector('.activity');
+          activityContainer.innerHTML = '';
+          recentlyAppliedJobs.forEach(job => {
+              const activityItem = document.createElement('div');
+              activityItem.classList.add('activity-item', 'd-flex');
+              activityItem.innerHTML = `
+                  <div class="activite-label">${new Date(job.timestamp).toLocaleString()}</div>
+                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                  <div class="activity-content">
+                      ${job.job__title} - ${job.user__username}
+                  </div>
+              `;
+              activityContainer.appendChild(activityItem);
+          });
       }
     });
+
   </script> {% endcomment %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterLinks = document.querySelectorAll(".filter-link");
+
+    filterLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const filter = e.target.getAttribute("data-filter");
+
+            fetch(`/job/total_count_c/?filter=${filter}`, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Received data:', data);
+
+                document.getElementById("all-application-count").innerText = data.all_application_count;
+                document.getElementById("accepted-applications-count").innerText = data.accepted_applications_counts;
+                document.getElementById("rejected-applications-count").innerText = data.rejected_applications_counts;
+                document.getElementById("pending-applications-count").innerText = data.pending_applications_counts;
+                document.getElementById("filter-title").innerText = data.filter_titles;
+
+                updateReportsChart(data.chart_datas);
+                updateRecentActivity(data.recently_applied_jobs);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        });
+    });
+
+    function updateReportsChart(chartData) {
+        const reportsChart = document.getElementById("reportsChart");
+        reportsChart.innerHTML = ""; 
+
+        new Chart(reportsChart, {
+            type: 'bar',
+            data: {
+                labels: ['Accepted', 'Rejected', 'Pending'],
+                datasets: [{
+                    label: 'Applications',
+                    data: [chartData.data[0], chartData.data[1], chartData.data[2]],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function updateRecentActivity(recentlyAppliedJobs) {
+        const activityContainer = document.querySelector('.activity');
+        activityContainer.innerHTML = '';
+
+        recentlyAppliedJobs.forEach(job => {
+            const activityItem = document.createElement('div');
+            activityItem.classList.add('activity-item', 'd-flex');
+            activityItem.innerHTML = `
+                <div class="activity-label">${new Date(job.timestamp).toLocaleString()}</div>
+                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                <div class="activity-content">
+                    ${job.job__title} - ${job.user__username}
+                </div>
+            `;
+            activityContainer.appendChild(activityItem);
+        });
+    }
+});
+ 
+
+
+
+</script>
+
+
+  
    
 
   </main>
@@ -1071,295 +1130,193 @@
       </nav>
     </div><!-- End Page Title -->
     <section class="section dashboard">
-       <!-- Template HTML -->
-        <div class="row">
-          <div class="row">
-            <div class="row">
-          <!-- Total Jobpost Count -->
-              <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card sales-card">
-                      <div class="filter">
-                          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                              <li class="dropdown-header text-start">
-                                  <h6>Filter</h6>
-                              </li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-
-                          </ul>
-                      </div>
-                      <div class="card-body">
-                          <h5 class="card-title">Total Applied Users</h5>
-                          <div class="d-flex align-items-center">
-                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                  <i class="bi bi-briefcase"></i>
-                              </div>
-                              <div class="ps-3">
-                                  <h6 id="applied-users-count">{{ applied_users_count }}</h6>
-                              </div>
+      <div class="row">
+          <!-- Total Applied Users Count -->
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Total Applied Users</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-briefcase"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="applied-users-counts">{{ applied_users_count }}</h6>
                           </div>
                       </div>
                   </div>
               </div>
+          </div>
 
           <!-- Accepted Applications Count -->
-              <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card sales-card">
-                      <div class="filter">
-                          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                              <li class="dropdown-header text-start">
-                                  <h6>Filter</h6>
-                              </li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                          </ul>
-                      </div>
-                      <div class="card-body">
-                          <h5 class="card-title">Approved Applications</h5>
-                          <div class="d-flex align-items-center">
-                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                  <i class="bi bi-briefcase"></i>
-                              </div>
-                              <div class="ps-3">
-                                  <h6 id="accepted-applications-count">{{ accepted_applications_count }}</h6>
-                              </div>
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Approved Applications</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-briefcase"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="accepted-applications-counts">{{ accepted_applications_count }}</h6>
                           </div>
                       </div>
                   </div>
               </div>
+          </div>
 
           <!-- Rejected Applications Count -->
-              <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card sales-card">
-                      <div class="filter">
-                          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                              <li class="dropdown-header text-start">
-                                  <h6>Filter</h6>
-                              </li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                          </ul>
-                      </div>
-                      <div class="card-body">
-                          <h5 class="card-title">Rejected Applications</h5>
-                          <div class="d-flex align-items-center">
-                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                  <i class="bi bi-people"></i>
-                              </div>
-                              <div class="ps-3">
-                                  <h6 id="rejected-applications-count">{{ rejected_applications_count }}</h6>
-                              </div>
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Rejected Applications</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-people"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="rejected-applications-counts">{{ rejected_applications_count }}</h6>
                           </div>
                       </div>
                   </div>
               </div>
+          </div>
 
           <!-- Pending Applications Count -->
-              <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card sales-card">
-                      <div class="filter">
-                          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                              <li class="dropdown-header text-start">
-                                  <h6>Filter</h6>
-                              </li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                              <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                          </ul>
-                      </div>
-                      <div class="card-body">
-                          <h5 class="card-title">Pending Applications</h5>
-                          <div class="d-flex align-items-center">
-                              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                  <i class="bi bi-hourglass-split"></i>
-                              </div>
-                              <div class="ps-3">
-                                  <h6 id="pending-applications-count">{{ pending_applications_count }}</h6>
-                              </div>
+          <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Pending Applications</h5>
+                      <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-hourglass-split"></i>
+                          </div>
+                          <div class="ps-3">
+                              <h6 id="pending-applications-counts">{{ pending_applications_count }}</h6>
                           </div>
                       </div>
                   </div>
               </div>
+          </div>
 
-          <!-- JavaScript for AJAX -->
-           
+          <!-- Reports Chart -->
+          <div class="col-12">
+              <div class="card">
+                  <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                          <li class="dropdown-header text-start">
+                              <h6>Filter</h6>
+                          </li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
+                          <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Reports</h5>
+                      <p>Filter: <span id="filter-titles">{{ filter_title }}</span></p>
+                      <div>
+                          <canvas id="reportsCharts"></canvas>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-          <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-                            <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
-                            <li><a class="dropdown-item filter-link" href="#" data-filter="week">Week</a></li>
-                            <li><a class="dropdown-item filter-link" href="#" data-filter="month">Month</a></li>
-                            <li><a class="dropdown-item filter-link" href="#" data-filter="year">Year</a></li>
-                            <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Reports</h5>
-                        <p>Filter: <span id="filter-title"></span></p>
-                        <div>
-                            <canvas id="reportsChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+          <!-- Recent Activity -->
           <div class="row">
             <div class="card">
               <div class="filter">
                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                   <li class="dropdown-header text-start"><h6>Filter</h6></li>
-                  <li><a class="dropdown-item" href="{% url 'recent_applied_jobs' %}?filter=today">Today</a></li>
-                  <li><a class="dropdown-item" href="{% url 'recent_applied_jobs' %}?filter=this_month">This Month</a></li>
-                  <li><a class="dropdown-item" href="{% url 'recent_applied_jobs' %}?filter=this_year">This Year</a></li>
+                  <li><a class="dropdown-item filter-link" href="#" data-filter="today">Today</a></li>
+                    <li><a class="dropdown-item filter-link" href="#" data-filter="week">This Week</a></li>
+                    <li><a class="dropdown-item filter-link" href="#" data-filter="month">This Month</a></li>
+                    <li><a class="dropdown-item filter-link" href="#" data-filter="year">This Year</a></li>
+                    <li><a class="dropdown-item filter-link" href="#" data-filter="all">All</a></li>
                 </ul>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+                <h5 class="card-title">Recent Activity <span>| </span></h5>
                 <div class="activity">
-                  {% for job in recent_applied_jobs %}
+                  {% for job in recently_applied_jobs %}
                   <div class="activity-item d-flex">
                     <div class="activite-label">{{ job.timestamp|timesince }}</div>
                     <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                     <div class="activity-content">
                       {{ job.job__title }}
                     </div>
-                    <div class="activity-content">
+                     <div class="activity-content">
                       {{ job.user__username }}
-                    </div>
-                  </div><!-- End activity item-->
+                    </div> 
+                  </div>
+                  <!-- End activity item-->
                   {% endfor %}
                 </div>
               </div>
             </div>
           </div>
-      {% comment %} </div> {% endcomment %}
-    </section>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const filterLinks = document.querySelectorAll('.filter-link');
-        filterLinks.forEach(link => {
-          link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const filter = this.getAttribute('data-filter');
-            fetch(`/your-view-url/?filter=${filter}`)
-              .then(response => response.json())
-              .then(data => {
-                document.getElementById('applied-users-count').textContent = data.applied_users_count;
-                document.getElementById('accepted-applications-count').textContent = data.accepted_applications_count;
-                document.getElementById('rejected-applications-count').textContent = data.rejected_applications_count;
-                document.getElementById('pending-applications-count').textContent = data.pending_applications_count;
-                document.getElementById('filter-title').textContent = data.filter_title;
-                updateChart(data.chart_data);
-                updateRecentActivity(data.recently_applied_jobs);
-              });
-          });
-        });
-    
-        function updateChart(chartData) {
-          // Update your chart with new data
-        }
-    
-        function updateRecentActivity(recentlyAppliedJobs) {
-          const activityContainer = document.querySelector('.activity');
-          activityContainer.innerHTML = '';
-          recentlyAppliedJobs.forEach(job => {
-            const activityItem = document.createElement('div');
-            activityItem.classList.add('activity-item', 'd-flex');
-            activityItem.innerHTML = `
-              <div class="activite-label">${job.timestamp}</div>
-              <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-              <div class="activity-content">${job.job__title}</div>
-              <div class="activity-content">${job.user__username}</div>
-            `;
-            activityContainer.appendChild(activityItem);
-          });
-        }
-      });
-    </script>
-    
-  
-                
-
-
-      
-        
-    
-        
-        
-         
-              
-                     
-
+          
+      </div>
+  </section>
 
   
-      
-    
-        
-
-
- 
-  <!-- End Section -->
-  
-  </main>
-{% endif %}
-  <!-- End #main -->
-  {% endblock  %}
-  <!-- ======= Footer ======= -->
-  
-  {% block footer %}
-    
- 
-    
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </footer><!-- End Footer -->
-  {% endblock footer %}
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  {% block script %}
-  <script src="{% static 'js/apexcharts/apexcharts.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'js/chart.js/chart.umd.js' %}"></script>
-  <script src="{% static 'js/echarts/echarts.min.js' %}"></script>
-  <script src="{% static 'js/quill/quill.js'  %}"></script>
-  <script src="{% static 'js/simple-datatables/simple-datatables.js' %}"></script>
-  <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
-  <script src="{% static 'js/php-email-form/validate.js' %} "></script>
-
-  <script src="{% static 'js/js/main.js' %}"></script>
-  
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -1378,13 +1335,13 @@
                   .then(response => response.json())
                   .then(data => {
                       console.log(data); 
-                      document.getElementById("applied-users-count").innerText = data.applied_users_count;
-                      document.getElementById("accepted-applications-count").innerText = data.accepted_applications_count;
-                      document.getElementById("rejected-applications-count").innerText = data.rejected_applications_count;
-                      document.getElementById("pending-applications-count").innerText = data.pending_applications_count;
-                      document.getElementById("filter-title").innerText = data.filter_title;
+                      document.getElementById("applied-users-counts").innerText = data.applied_users_count;
+                      document.getElementById("accepted-applications-counts").innerText = data.accepted_applications_count;
+                      document.getElementById("rejected-applications-counts").innerText = data.rejected_applications_count;
+                      document.getElementById("pending-applications-counts").innerText = data.pending_applications_count;
+                      document.getElementById("filter-titles").innerText = data.filter_title;
       
-                      const reportsChart = document.getElementById("reportsChart");
+                      const reportsChart = document.getElementById("reportsCharts");
                       reportsChart.innerHTML = ""; 
       
                       const chartData = data.chart_data; 
@@ -1437,107 +1394,72 @@
 
       </script>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const filterLinks = document.querySelectorAll(".filter-link");
-        
-            filterLinks.forEach(link => {
-                link.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const filter = e.target.getAttribute("data-filter");
-        
-                    fetch(`/job/total_count_c/?filter=${filter}`, {
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data); 
-                        document.getElementById("applied-users-count").innerText = data.applied_users_count;
-                        document.getElementById("accepted-applications-count").innerText = data.accepted_applications_count;
-                        document.getElementById("rejected-applications-count").innerText = data.rejected_applications_count;
-                        document.getElementById("pending-applications-count").innerText = data.pending_applications_count;
-                        document.getElementById("filter-title").innerText = data.filter_title;
-        
-                        const reportsChart = document.getElementById("reportsChart");
-                        reportsChart.innerHTML = ""; 
-        
-                        const chartData = data.chart_data; 
-                        const chart = new Chart(reportsChart, {
-                            type: 'bar',
-                            data: {
-                                labels: chartData.labels,
-                                datasets: [{
-                                    label: 'Applications',
-                                    data: chartData.data,
-                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                    borderColor: 'rgba(54, 162, 235, 1)',
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        });
-        
-                       updateRecentActivity(data.recently_applied_jobs);
-              })
-              .catch(error => {
-                  console.error('Error fetching data:', error);
-              });
-          });
-      });
+
   
-      function updateRecentActivity(recentlyAppliedJobs) {
-          const activityContainer = document.querySelector('.activity');
-          activityContainer.innerHTML = '';
-          recentlyAppliedJobs.forEach(job => {
-              const activityItem = document.createElement('div');
-              activityItem.classList.add('activity-item', 'd-flex');
-              activityItem.innerHTML = `
-                  <div class="activite-label">${new Date(job.timestamp).toLocaleString()}</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class="activity-content">
-                      ${job.job__title} - ${job.user__username}
-                  </div>
-              `;
-              activityContainer.appendChild(activityItem);
-          });
-      }
-  });
   
-        </script>
+
+
+
+  
+  
+                
+
+
+      
+        
+    
+        
+        
+         
+              
+                     
+
+
+  
+      
+    
+        
+
+
+ 
+  <!-- End Section -->
+  
+  </main>
+{% endif %}
+  <!-- End #main -->
+  {% endblock  %}
+  <!-- ======= Footer ======= -->
+  
+  {% block footer %}
+    
+ 
+    
+  <footer id="footer" class="footer">
+  
+  
+  </footer><!-- End Footer -->
+  {% endblock footer %}
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  {% block script %}
+  <script src="{% static 'js/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/chart.js/chart.umd.js' %}"></script>
+  <script src="{% static 'js/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'js/quill/quill.js'  %}"></script>
+  <script src="{% static 'js/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'js/php-email-form/validate.js' %} "></script>
+
+  <script src="{% static 'js/js/main.js' %}"></script>
+  
+   
+  
       
     
 
-  {% comment %} <script>
-    $(document).ready(function() {
-        $('.filter-link').click(function(e) {
-            e.preventDefault();
-            var filterType = $(this).data('filter');
-            $.ajax({
-                url: '{% url "get_job_application_counts" %}',
-                data: {
-                    filter: filterType
-                },
-                dataType: 'json',
-                success: function(data) {
-                    $('#total-applications').text(data.total_applications);
-                    $('#total-applied-users').text(data.total_applied_users);
-                    $('#total-pending').text(data.Pending);
-                    $('#total-accepted').text(data.Accepted);
-                    $('#total-rejected').text(data.Rejected);
-                }
-            });
-        });
-    });
-</script> {% endcomment %}
-
+  
 
 
     

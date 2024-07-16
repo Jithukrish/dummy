@@ -931,7 +931,7 @@ class StatusTrackUpdateEmpView(UpdateView):
 #all applications views employer jobs 
 class AllApplicationsView(DetailView):
     model = JobPost
-    template_name = 'job/all_applications.html'
+    template_name = 'Job/all_applications.html'
     context_object_name = 'job'
     
     def get_context_data(self, **kwargs):
@@ -1737,10 +1737,13 @@ class SekkerSearchAllJobsView(ListView):
 #     template_name = 'Dashboard/Dashboard.html'
 
 
+# class TotalCountView(View):
+# class TotalCountView(View):
 class TotalCountView(View):
     def get(self, request, *args, **kwargs):
         filter_value = request.GET.get('filter', 'year')
         today = timezone.now().date()
+        user = request.user  
 
         if filter_value == 'today':
             start_date = today
@@ -1750,42 +1753,36 @@ class TotalCountView(View):
             start_date = today.replace(day=1)
         elif filter_value == 'year':
             start_date = today.replace(month=1, day=1)
+        elif filter_value == 'all':
+            start_date = None
         else:
             start_date = None
-        
-        if start_date:
-            applications = Apply_Job.objects.filter(timestamp__gte=start_date).order_by('-timestamp')
+
+        if start_date is not None:
+            applications = Apply_Job.objects.filter(job__employer=user, timestamp__gte=start_date)
         else:
-            applications = Apply_Job.objects.all().order_by('-timestamp')
-        
+            applications = Apply_Job.objects.filter(job__employer=user)
+
         applied_users_count = applications.values('user').distinct().count()
         accepted_applications_count = applications.filter(status='Accepted').count()
         rejected_applications_count = applications.filter(status='Rejected').count()
         pending_applications_count = applications.filter(status='Pending').count()
-        recent_applied_jobs = applications.select_related('job', 'user').values('job__title', 'user__username', 'timestamp')[:10]
-
-        chart_data = {
-            'labels': ['Accepted', 'Rejected', 'Pending'],
-            'data': [accepted_applications_count, rejected_applications_count, pending_applications_count],
-        }
 
         data = {
             'applied_users_count': applied_users_count,
             'accepted_applications_count': accepted_applications_count,
             'rejected_applications_count': rejected_applications_count,
             'pending_applications_count': pending_applications_count,
-            'filter_title': filter_value.capitalize(), 
-            'chart_data': chart_data,
-            'recently_applied_jobs': list(recent_applied_jobs) 
+            'filter_title': filter_value.capitalize(),
         }
 
         return JsonResponse(data)
 
-class TotalCountJobView(View):
+class TotalCountView(View):
     def get(self, request, *args, **kwargs):
-        user = request.user
         filter_value = request.GET.get('filter', 'year')
         today = timezone.now().date()
+        employer = request.user  
 
         if filter_value == 'today':
             start_date = today
@@ -1795,35 +1792,160 @@ class TotalCountJobView(View):
             start_date = today.replace(day=1)
         elif filter_value == 'year':
             start_date = today.replace(month=1, day=1)
+        elif filter_value == 'all':
+            start_date = None
         else:
             start_date = None
-        
-        if start_date:
-            applications = Apply_Job.objects.filter(user=user, timestamp__gte=start_date).order_by('-timestamp')
-        else:
-            applications = Apply_Job.objects.all(user=user).order_by('-timestamp')
-        
-        applied_jobs_count = applications.count()
-        accepted_applications_count = applications.filter(status='Accepted').count()
-        rejected_applications_count = applications.filter(status='Rejected').count()
-        pending_applications_count = applications.filter(status='Pending').count()
-        recent_applied_jobs = applications.select_related('job').values('job__title', 'timestamp')[:10]
-        chart_data = {
+
+        job_posts = JobPost.objects.filter(user=employer)
+
+        total_applied_users = 0
+        accepted_count = 0
+        rejected_count = 0
+        pending_count = 0
+        recent_data = []
+
+        for job_post in job_posts:
+            applications = Apply_Job.objects.filter(job=job_post)
+            if start_date:
+                applications = applications.filter(timestamp__gte=start_date)
+
+            total_applied_users += applications.values('user').distinct().count()
+            accepted_count += applications.filter(status='Accepted').count()
+            rejected_count += applications.filter(status='Rejected').count()
+            pending_count += applications.filter(status='Pending').count()
+            recent_applied_job = applications.select_related('job').values('job__title','user__username','timestamp')[:10]
+            # for application in recent_applied_job :
+            #    recent_data.append({
+            #         'job_title': application['job__title'],
+            #         'first_name': application['user__jobseeker_profile__first_name'],
+            #         'last_name': application['user__jobseeker_profile__last_name'],
+            #         'timestamp': application['timestamp'],
+            #     })
+            chart_data = {
             'labels': ['Accepted', 'Rejected', 'Pending'],
-            'data': [accepted_applications_count, rejected_applications_count, pending_applications_count],
+            'data': [accepted_count, rejected_count, pending_count],
         }
 
         data = {
-            'applied_users_count': applied_jobs_count,
-            'accepted_applications_count': accepted_applications_count,
-            'rejected_applications_count': rejected_applications_count,
-            'pending_applications_count': pending_applications_count,
-            'filter_title': filter_value.capitalize(), 
+            
+            'applied_users_count': total_applied_users,
+            'accepted_applications_count': accepted_count,
+            'rejected_applications_count': rejected_count,
+            'pending_applications_count': pending_count,
             'chart_data': chart_data,
-            'recently_applied_jobs': list(recent_applied_jobs),
+            'filter_title': filter_value.capitalize(),
+            'recently_applied_jobs': list(recent_applied_job),
         }
 
         return JsonResponse(data)
+
+
+
+
+
+
+
+
+class TotalCountJobView(View):
+    def get(self, request, *args, **kwargs):
+        filter_value = request.GET.get('filter', 'year')
+        today = timezone.now().date()
+        jobseeker = request.user  
+
+        if filter_value == 'today':
+            start_date = timezone.make_aware(datetime.combine(today, datetime.min.time()))
+        elif filter_value == 'week':
+            start_date = timezone.make_aware(datetime.combine(today - timedelta(days=today.weekday()), datetime.min.time()))
+        elif filter_value == 'month':
+            start_date = timezone.make_aware(datetime.combine(today.replace(day=1), datetime.min.time()))
+        elif filter_value == 'year':
+            start_date = timezone.make_aware(datetime.combine(today.replace(month=1, day=1), datetime.min.time()))
+        elif filter_value == 'all':
+            start_date = None
+        else:
+            start_date = None
+
+
+        total_application = 0
+        accepted_count = 0
+        rejected_count = 0
+        pending_count = 0
+      
+
+       
+        if start_date:
+            applications = Apply_Job.objects.filter(user=jobseeker, timestamp__gte=start_date).order_by('-timestamp')
+        else:
+            applications = Apply_Job.objects.all(user=jobseeker).order_by('-timestamp')
+
+        total_application += applications.count()
+        accepted_count += applications.filter(status='Accepted').count()
+        rejected_count += applications.filter(status='Rejected').count()
+        pending_count += applications.filter(status='Pending').count()
+        recent_applied_job = applications.select_related('job').values('job__title','user__username','timestamp')[:10]
+        
+        chart_data = {
+                'labels': ['Accepted', 'Rejected', 'Pending'],
+                'data': [accepted_count, rejected_count, pending_count],
+                }
+
+        data = {
+            
+            'all_application_count': total_application,
+            'accepted_applications_counts': accepted_count,
+            'rejected_applications_counts': rejected_count,
+            'pending_applications_counts': pending_count,
+            'chart_datas': chart_data,
+            'filter_titles': filter_value.capitalize(),
+            'recently_applied_jobs': list(recent_applied_job),
+        }
+
+        return JsonResponse(data)
+
+# class TotalCountJobView(View):
+#     def get(self, request, *args, **kwargs):
+#         user = request.user
+#         filter_value = request.GET.get('filter', 'year')
+#         today = timezone.now().date()
+
+#         if filter_value == 'today':
+#             start_date = today
+#         elif filter_value == 'week':
+#             start_date = today - timedelta(days=today.weekday())
+#         elif filter_value == 'month':
+#             start_date = today.replace(day=1)
+#         elif filter_value == 'year':
+#             start_date = today.replace(month=1, day=1)
+#         else:
+#             start_date = None
+        
+#         if start_date:
+#             applications = Apply_Job.objects.filter(user=user, timestamp__gte=start_date).order_by('-timestamp')
+#         else:
+#             applications = Apply_Job.objects.all(user=user).order_by('-timestamp')
+        
+#         applied_jobs_count = applications.count()
+#         accepted_applications_count = applications.filter(status='Accepted').count()
+#         rejected_applications_count = applications.filter(status='Rejected').count()
+#         pending_applications_count = applications.filter(status='Pending').count()
+#         recent_applied_jobs = applications.select_related('job').values('job__title', 'timestamp')[:10]
+#         chart_data = {
+#             'labels': ['Accepted', 'Rejected', 'Pending'],
+#             'data': [accepted_applications_count, rejected_applications_count, pending_applications_count],
+#         }
+
+#         data = {
+#             'applied_users_count': applied_jobs_count,
+#             'accepted_applications_count': accepted_applications_count,
+#             'rejected_applications_count': rejected_applications_count,
+#             'pending_applications_count': pending_applications_count,
+#             'filter_title': filter_value.capitalize(), 
+#             'chart_data': chart_data,
+#             'recently_applied_jobs': list(recent_applied_jobs),
+#         }
+
+#         return JsonResponse(data)
 
 
 
