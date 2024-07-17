@@ -156,71 +156,112 @@
 
         </li><!-- End Notification Nav -->
 
-        <li class="nav-item dropdown">
+{% block sendTorecive %}
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
+<li class="nav-item dropdown">
+  <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+      <i class="bi bi-chat-left-text"></i>
+      <span class="badge bg-success badge-number">{{ messages.count }}</span>
+  </a><!-- End Messages Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+      <li class="dropdown-header">
+          You have {{ messages.count }} new messages
+          <a href="#" data-bs-toggle="modal" data-bs-target="#sendMessageModal"><span class="badge rounded-pill bg-primary p-2 ms-2">Send message</span></a>
+      </li>
+      <li>
+          <hr class="dropdown-divider">
+      </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="{% static 'img/img/messages-1.jpg' %}" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+      <!-- List of Messages -->
+      {% for message in messages %}
+      <li class="message-item">
+          <a href="#">
+              <img src="{{ message.sender.img.url}}" alt="" class="rounded-circle">
+              <div>
+                  <h4>{{ message.sender.username }}</h4>
+                  <p>{{ message.message }}</p>
+                  <p>{{ message.timestamp }}</p>
+              </div>
+          </a>
+          <a href="#"  data-bs-toggle="modal" data-bs-target="#sendMessageModal"><span class="badge rounded-pill bg-primary p-2 ms-2">Send</span></a>
+      </li>
+      <li>
+          <hr class="dropdown-divider">
+      </li>
+      {% endfor %}
 
-            <li class="message-item">
-              <a href="#">
-                <img src="{% static 'img/img/messages-2.jpg' %}" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+      <li class="dropdown-footer">
+          <a href="#">Show all messages</a>
+      </li>
+  </ul><!-- End Messages Dropdown Items -->
+</li>
+<div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="sendMessageModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="sendMessageModalLabel">Send Message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form id="sendMessageForm">
+              <div class="modal-body">
+                  <input type="hidden" name="receiver_id" id="receiver_id" value="">
+                  <div class="form-group">
+                      <label for="message">Message:</label>
+                      <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Send message</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="{% static 'img/img/messages-3.jpg' %}" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#sendMessageForm').on('submit', function(event) {
+          event.preventDefault();  
+          
+          var receiver_id = $('#receiver_id').val();
+          var message = $('#message').val();
+          
+          $.ajax({
+              type: 'POST',
+              url: '/send_message/',  
+              data: {
+                  'receiver_id': receiver_id,
+                  'message': message,
+                  'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()  
+              },
+              success: function(response) {
+                  $('#sendMessageModal').modal('hide');  
+                  
+                  alert('Message sent successfully!');
+              },
+              error: function(error) {
+                  console.log(error);
+                  alert('An error occurred. Please try again.');
+              }
+          });
+      });
+  });
+</script>
+  
+{% endblock  %}
+  
+        <!-- End Messages Nav -->
+<!-----------------------------pop up message form------------------------------------->
+<!-- Modal Popup Form -->
 
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
 
-          </ul><!-- End Messages Dropdown Items -->
 
-        </li><!-- End Messages Nav -->
+<!--------------------------------------------------------->
+
 
         <li class="nav-item dropdown pe-3">
 

@@ -10,11 +10,11 @@ from django.contrib import messages
 from django.http import Http404, HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
-from .models import JobApplicationNotification, JobPost,Education,Skills_job,Apply_Job
+from .models import JobApplicationNotification, JobPost,Education,Skills_job,Apply_Job, Message
 from Company.models import Company
 from UserApplicant.models import User,jobseeker_Profile
 from Resume.models import Resume
-from .forms import EducationForm, JobPostForm, SkillForm,UpdateJobPostForm,ApplyJobForm,SalaryRangeForm
+from .forms import EducationForm, JobPostForm, SkillForm,UpdateJobPostForm,ApplyJobForm,SalaryRangeForm, MessageForm
 from Resume.forms import ResumeForm
 from django.db.models import Q
 from django.template.loader import render_to_string
@@ -1904,49 +1904,19 @@ class TotalCountJobView(View):
         return JsonResponse(data)
 
 # class TotalCountJobView(View):
-#     def get(self, request, *args, **kwargs):
-#         user = request.user
-#         filter_value = request.GET.get('filter', 'year')
-#         today = timezone.now().date()
+class SendMessageView(View):
+    def post(self, request, *args, **kwargs):
+        receiver_id = request.POST.get('receiver_id', '')
+        message = request.POST.get('message', '')
+        receiver = User.objects.get(pk=receiver_id)
+        messages =Message.objects.create(sender=request.user, receiver__id=receiver, message=message)
+        return JsonResponse({'status': 'success', 'messages': 'Message sent successfully!'})
+class InboxView(View):
+    def get(self, request, *args, **kwargs):
+        messages = Message.objects.filter(sender=request.user) | Message.objects.filter(receiver=request.user)
 
-#         if filter_value == 'today':
-#             start_date = today
-#         elif filter_value == 'week':
-#             start_date = today - timedelta(days=today.weekday())
-#         elif filter_value == 'month':
-#             start_date = today.replace(day=1)
-#         elif filter_value == 'year':
-#             start_date = today.replace(month=1, day=1)
-#         else:
-#             start_date = None
-        
-#         if start_date:
-#             applications = Apply_Job.objects.filter(user=user, timestamp__gte=start_date).order_by('-timestamp')
-#         else:
-#             applications = Apply_Job.objects.all(user=user).order_by('-timestamp')
-        
-#         applied_jobs_count = applications.count()
-#         accepted_applications_count = applications.filter(status='Accepted').count()
-#         rejected_applications_count = applications.filter(status='Rejected').count()
-#         pending_applications_count = applications.filter(status='Pending').count()
-#         recent_applied_jobs = applications.select_related('job').values('job__title', 'timestamp')[:10]
-#         chart_data = {
-#             'labels': ['Accepted', 'Rejected', 'Pending'],
-#             'data': [accepted_applications_count, rejected_applications_count, pending_applications_count],
-#         }
-
-#         data = {
-#             'applied_users_count': applied_jobs_count,
-#             'accepted_applications_count': accepted_applications_count,
-#             'rejected_applications_count': rejected_applications_count,
-#             'pending_applications_count': pending_applications_count,
-#             'filter_title': filter_value.capitalize(), 
-#             'chart_data': chart_data,
-#             'recently_applied_jobs': list(recent_applied_jobs),
-#         }
-
-#         return JsonResponse(data)
-
+        context = {'messages': messages}
+        return render(request, 'Dashboard/Dashboard.html', context)
 
 
 

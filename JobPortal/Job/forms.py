@@ -69,5 +69,18 @@ class ApplyJobForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.user = kwargs.pop('user', None)  
+        self.user = kwargs.pop('user', None) 
+
+
+
+from .models import Message
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model   = Message
+        fields  =[
+            'sender',
+            'receiver',
+            'message',
+        ] 
      

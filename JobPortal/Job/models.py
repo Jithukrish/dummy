@@ -93,3 +93,11 @@ class JobApplicationNotification(models.Model):
 
     class Meta:
         ordering = ['-time_stamp']
+
+
+class Message(models.Model):
+     sender = models.ForeignKey(User, on_delete=models.CASCADE ,related_name="sender")
+     receiver = models.ForeignKey(User,  on_delete=models.CASCADE ,related_name="reciver")
+     message = models.TextField()
+     timestamp = models.DateTimeField(auto_now_add=True)
+     unread = models.BooleanField(default = True)

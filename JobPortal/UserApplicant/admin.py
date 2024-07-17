@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import User,Skill,jobseeker_Profile,Profile
 from Company.models import Company
 from Resume.models import Resume
-from Job.models import Apply_Job, Skills_job,Education,JobPost
+from Job.models import Apply_Job, Message, Skills_job,Education,JobPost
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
 from django.contrib import messages
@@ -46,3 +46,4 @@ admin.site.register(Education)
 admin.site.register(Skills_job)
 admin.site.register(JobPost)
 admin.site.register(Apply_Job)
+admin.site.register(Message)

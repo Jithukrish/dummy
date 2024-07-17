@@ -1,5 +1,5 @@
 from django.urls import path
-from . views import AcceptedApplicationsCountView, AcceptedApplicationsView, AppliedJobSeekersListView, CreateJobPostView,AddEducationView, JobAppliListview, JobApplicationCountView, JobPostCountRecivedView, JobPostCountView, JobseekerReportsView, PendingApplicationsCountView, PendingApplicationsView, RecentAppliedJobsListView, RejectedApplicationsCountView, RejectedApplicationsView, ReportsView, ReportsstatusView, SearchAppliedJobs, SearchManageView, SearchStatusListview, SekkerSearchAllJobsView, TotalCountJobView, TotalCountView
+from . views import AcceptedApplicationsCountView, AcceptedApplicationsView, AppliedJobSeekersListView, CreateJobPostView,AddEducationView, JobAppliListview, JobApplicationCountView, JobPostCountRecivedView, JobPostCountView, JobseekerReportsView, PendingApplicationsCountView, PendingApplicationsView, RecentAppliedJobsListView, RejectedApplicationsCountView, RejectedApplicationsView, ReportsView, ReportsstatusView, SearchAppliedJobs, SearchManageView, SearchStatusListview, SekkerSearchAllJobsView, SendMessageView, TotalCountJobView, TotalCountView
 from .import views
 
 urlpatterns = [
@@ -46,7 +46,7 @@ urlpatterns = [
     path('total_count_c/',TotalCountJobView.as_view(),name="total_count_c"),
     # path('dashboard/', DashboardView.as_view(), name='dashboard'),
     # path('get-job-application-counts/', GetJobApplicationCounts.as_view(), name='get_job_application_counts'),
-
+    path('send_message/', SendMessageView.as_view(), name='send_message'),
     path('count_total_applied/',JobPostCountRecivedView.as_view(),name="count_total_applied"),
     path('count_total/',AcceptedApplicationsCountView.as_view(),name="count_total"),
     path('count_rejected/',RejectedApplicationsCountView.as_view(),name="count_rejected"),
